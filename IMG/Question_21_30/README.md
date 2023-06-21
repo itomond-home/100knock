@@ -1,45 +1,4 @@
 # Q. 21 - 30
-
-## Q.26. Bi-linear補間
-
-Bi-linear補間により画像を1.5倍に拡大せよ。
-
-Bi-linear補間とは周辺の４画素に距離に応じた重みをつけることで補完する手法である。
-計算量が多いだけ処理時間がかかるが、画質の劣化を抑えることができる。
-
-1. 拡大画像の座標(x', y')を拡大率aで割り、floor(x'/a, y'/a)を求める。
-2. 元画像の(x'/a, y'/a)の周囲4画素、I(x,y), I(x+1,y), I(x,y+1), I(x+1, y+1)を求める
-
-<img src="assets/bli_fig.png" width="700">
-
-<!--
-```bash
-I(x,y)    I(x+1,y) 
-     * (x'/a,y'/a)
-I(x,y+1)  I(x+1,y+1)
-```
--->
-
-3. それぞれの画素と(x'/a, y'/a)との距離dを求め、重み付けする。 w = d / Sum d
-4. 次式によって拡大画像の画素(x',y')を求める。 
-dx = x'/a - x , dy = y'/a - y
-
-<img src="assets/bli_equ1.png" width="500">
-
-<!--
-```bash
-I'(x',y') = (1-dx)(1-dy)I(x,y) + dx(1-dy)I(x+1,y) + (1-dx)dyI(x,y+1) + dxdyI(x+1,y+1)
-```
--->
-
-|入力 (imori.jpg)|出力 (answers_image/answer_26.jpg)|
-|:---:|:---:|
-|![](imori.jpg)|![](answers_image/answer_26.jpg)|
-
-答え 
-- Python >> [answers_py/answer_26.py](answers_py/answer_26.py)
-- C++ >> [answers_cpp/answer_26.cpp](answers_cpp/answer_26.cpp)
-
 ## Q.27. Bi-cubic補間
 
 Bi-cubic補間により画像を1.5倍に拡大せよ。
